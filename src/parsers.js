@@ -1,14 +1,20 @@
 import path from 'path';
 import fs from 'fs';
+import yaml from 'js-yaml'; 
 
-const getFormat = (filepath) => path.extname(filepath).slice(1); // "json"
+const getFormat = (filepath) => path.extname(filepath).slice(1); 
 const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 
 const parse = (data, format) => {
-  if (format === 'json') {
-    return JSON.parse(data);
+  switch (format) {
+    case 'json':
+      return JSON.parse(data);
+    case 'yml':
+    case 'yaml':
+      return yaml.load(data);
+    default:
+      throw new Error(`Unknown format: ${format}`);
   }
-  throw new Error(`Unknown format: ${format}`);
 };
 
 export default (filepath) => {
