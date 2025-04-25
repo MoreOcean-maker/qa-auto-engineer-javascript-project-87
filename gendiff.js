@@ -16,7 +16,7 @@ program
     const data1 = parseFile(filepath1);
     const data2 = parseFile(filepath2);
     const diff = genDiff(data1, data2);
-    // console.log(diff);
+    console.log(diff);
   });
 
 program.parse(process.argv);
