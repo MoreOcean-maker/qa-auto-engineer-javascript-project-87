@@ -4,15 +4,16 @@
   "description": "[![Actions Status](https://github.com/MoreOcean-maker/qa-auto-engineer-javascript-project-87/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/MoreOcean-maker/qa-auto-engineer-javascript-project-87/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MoreOcean-maker/qa-auto-engineer-javascript-project-87.git"
   },
   "bin": {
-  "gendiff": "./gendiff.js"
-},
+    "gendiff": "./gendiff.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/MoreOcean-maker/qa-auto-engineer-javascript-project-87/issues"
   },
-  "homepage": "https://github.com/MoreOcean-maker/qa-auto-engineer-javascript-project-87#readme"
+  "homepage": "https://github.com/MoreOcean-maker/qa-auto-engineer-javascript-project-87#readme",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0"
+  },
+  "dependencies": {
+    "commander": "^13.1.0"
+  }
 }
