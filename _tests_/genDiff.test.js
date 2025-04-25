@@ -21,4 +21,3 @@ test('correctly compares two JSON files', () => {
     }"
   `);
 });
-
