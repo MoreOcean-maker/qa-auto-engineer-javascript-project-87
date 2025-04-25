@@ -1,8 +1,6 @@
 export default {
-  transform: {},
+  transform: {
+    '^.+\\.js$': 'babel-jest',
+  },
   testEnvironment: 'node',
-  moduleFileExtensions: ['js', 'json', 'jsx', 'node'],
-  transformIgnorePatterns: [
-    '/node_modules/(?!your-esm-package-to-transform)',
-  ],
 };
