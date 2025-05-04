@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs';
-import path from 'path';
 import parse from './parsers.js';
 import buildDiff from './buildDiff.js';
 
@@ -9,7 +7,7 @@ const formatters = {
     const iter = (nodes, parentPath = '') => nodes
       .flatMap((node) => {
         const currentPath = parentPath ? `${parentPath}.${node.key}` : node.key;
-        
+
         switch (node.type) {
           case 'added':
             return `Property '${currentPath}' was added with value: ${stringify(node.value)}`;
@@ -48,7 +46,7 @@ const formatters = {
           case 'updated':
             return [
               `${indent}- ${node.key}: ${stringify(node.oldValue, depth)}`,
-              `${indent}+ ${node.key}: ${stringify(node.value, depth)}`
+              `${indent}+ ${node.key}: ${stringify(node.value, depth)}`,
             ].join('\n');
           case 'nested':
             return `${indent}  ${node.key}: {\n${iter(node.children, depth + 1)}\n${indent}  }`;
@@ -68,7 +66,7 @@ const formatters = {
     };
 
     return `{\n${iter(diff)}\n}`;
-  }
+  },
 };
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {

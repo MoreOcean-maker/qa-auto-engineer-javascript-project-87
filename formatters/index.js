@@ -1,15 +1,13 @@
 import plain from './plain.js';
 import stylish from './stylish.js';
 
-const formatters = {
-  plain,
-  stylish,
-};
-
 export default (formatName) => {
-  const formatter = formatters[formatName];
-  if (!formatter) {
-    throw new Error(`Unknown format: ${formatName}`);
+  switch (formatName) {
+    case 'plain':
+      return plain;
+    case 'stylish':
+      return stylish;
+    default:
+      throw new Error(`Unknown format: ${formatName}`);
   }
-  return formatter;
 };

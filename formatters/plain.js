@@ -8,7 +8,7 @@ const plain = (diff) => {
   const iter = (nodes, parentPath = '') => nodes
     .flatMap((node) => {
       const currentPath = parentPath ? `${parentPath}.${node.key}` : node.key;
-      
+
       switch (node.type) {
         case 'added':
           return `Property '${currentPath}' was added with value: ${stringify(node.value)}`;
