@@ -67,6 +67,8 @@ const formatters = {
 
     return `{\n${iter(diff)}\n}`;
   },
+  // Временное решение для JSON формата
+  json: (diff) => JSON.stringify(diff, null, 2),
 };
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {

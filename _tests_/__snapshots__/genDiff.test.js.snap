@@ -1,8 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`genDiff plain format comparison 1`] = `
+exports[`genDiff json format 1`] = `
+"[
+  {
+    "key": "host",
+    "type": "unchanged",
+    "value": "hexlet.io"
+  },
+  {
+    "key": "timeout",
+    "type": "updated",
+    "oldValue": 50,
+    "value": 20
+  },
+  {
+    "key": "proxy",
+    "type": "removed",
+    "value": "123.234.53.22"
+  },
+  {
+    "key": "follow",
+    "type": "removed",
+    "value": false
+  },
+  {
+    "key": "verbose",
+    "type": "added",
+    "value": true
+  }
+]"
+`;
+
+exports[`genDiff plain format 1`] = `
 "Property 'timeout' was updated. From 50 to 20
 Property 'proxy' was removed
 Property 'follow' was removed
 Property 'verbose' was added with value: true"
+`;
+
+exports[`genDiff stylish format (default) 1`] = `
+"{
+    host: hexlet.io
+  - timeout: 50
+  + timeout: 20
+  - proxy: 123.234.53.22
+  - follow: false
+  + verbose: true
+}"
 `;

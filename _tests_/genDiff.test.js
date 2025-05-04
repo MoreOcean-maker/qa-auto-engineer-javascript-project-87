@@ -6,10 +6,28 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 const getFixturePath = (filename) => path.join(dirname, '..', '_fixtures_', filename);
 
 describe('genDiff', () => {
-  test('plain format comparison', () => {
-    const file1Path = getFixturePath('file1.json');
-    const file2Path = getFixturePath('file2.json');
-    const result = genDiff(file1Path, file2Path, 'plain');
+  const filepath1 = getFixturePath('file1.json');
+  const filepath2 = getFixturePath('file2.json');
+
+  test('stylish format (default)', () => {
+    const result = genDiff(filepath1, filepath2);
     expect(result).toMatchSnapshot();
+  });
+
+  test('plain format', () => {
+    const result = genDiff(filepath1, filepath2, 'plain');
+    expect(result).toMatchSnapshot();
+  });
+
+  test('json format', () => {
+    const result = genDiff(filepath1, filepath2, 'json');
+    expect(() => JSON.parse(result)).not.toThrow();
+    expect(result).toMatchSnapshot();
+  });
+
+  test('throws error for unknown format', () => {
+    expect(() => genDiff(filepath1, filepath2, 'unknown')).toThrow(
+      'Unknown format: unknown',
+    );
   });
 });

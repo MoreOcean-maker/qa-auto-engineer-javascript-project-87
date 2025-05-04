@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`json formatter correctly formats diff to JSON 1`] = `
+"[
+  {
+    "key": "timeout",
+    "type": "updated",
+    "oldValue": 50,
+    "value": 20
+  },
+  {
+    "key": "verbose",
+    "type": "added",
+    "value": true
+  }
+]"
+`;
