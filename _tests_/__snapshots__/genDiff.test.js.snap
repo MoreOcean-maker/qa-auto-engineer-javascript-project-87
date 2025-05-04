@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`genDiff plain format comparison 1`] = `
+"Property 'timeout' was updated. From 50 to 20
+Property 'proxy' was removed
+Property 'follow' was removed
+Property 'verbose' was added with value: true"
+`;

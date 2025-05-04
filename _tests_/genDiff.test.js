@@ -1,23 +1,21 @@
-import fs from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
-import genDiff from '../src/genDiff';
+import { fileURLToPath } from 'url';
+import genDiff from '../src/genDiff.js';
 
-const filepath1 = path.resolve('_fixtures_', 'file1.json');
-const filepath2 = path.resolve('_fixtures_', 'file2.json');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const getFixturePath = (filename) => path.join(__dirname, '..', '_fixtures_', filename);
 
-test('correctly compares two JSON files', () => {
-  const file1 = JSON.parse(fs.readFileSync(filepath1, 'utf8'));
-  const file2 = JSON.parse(fs.readFileSync(filepath2, 'utf8'));
-  const result = genDiff(file1, file2);
+describe('genDiff', () => {
+  test('plain format comparison', () => {
+    const file1 = getFixturePath('file1.json');
+    const file2 = getFixturePath('file2.json');
+    
+    // Убедитесь что файлы существуют
+    expect(() => readFileSync(file1)).not.toThrow();
+    expect(() => readFileSync(file2)).not.toThrow();
 
-  expect(result).toMatchInlineSnapshot(`
-    "{
-      - follow: false
-        host: hexlet.io
-      - proxy: 123.234.53.22
-      - timeout: 50
-      + timeout: 20
-      + verbose: true
-    }"
-  `);
+    const result = genDiff(file1, file2, 'plain');
+    expect(result).toMatchSnapshot();
+  });
 });

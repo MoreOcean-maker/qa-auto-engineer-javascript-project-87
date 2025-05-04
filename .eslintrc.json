@@ -1,7 +1,16 @@
 {
-	"extends": "airbnb-base",
-	"env": {
-	  "node": true,
-	  "jest": true
-	}
+  "extends": ["airbnb-base"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "rules": {
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "no-use-before-define": "off"
   }
+}
