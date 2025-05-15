@@ -11,6 +11,9 @@
     "gendiff": "bin/gendiff.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.31.0",
@@ -21,4 +24,3 @@
     "js-yaml": "^4.1.0"
   }
 }
-
