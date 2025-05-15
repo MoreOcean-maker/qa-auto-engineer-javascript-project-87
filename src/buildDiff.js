@@ -22,10 +22,10 @@ const buildDiff = (data1, data2) => {
     const value2 = data2[key];
 
     if (
-      typeof value1 === 'object' &&
-      value1 !== null &&
-      typeof value2 === 'object' &&
-      value2 !== null
+      typeof value1 === 'object'
+      && value1 !== null
+      && typeof value2 === 'object'
+      && value2 !== null
     ) {
       return {
         key,
