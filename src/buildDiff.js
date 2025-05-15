@@ -1,41 +1,31 @@
 const buildDiff = (data1, data2) => {
-  const keys = new Set([...Object.keys(data1), ...Object.keys(data2)]);
-  return Array.from(keys).map((key) => {
-    if (!(key in data2)) {
-      return {
-        key,
-        type: 'removed',
-        value: data1[key],
-      };
+  const keys = Array.from(new Set([...Object.keys(data1), ...Object.keys(data2)])).sort();
+
+  return keys.map((key) => {
+    if (!Object.hasOwn(data1, key)) {
+      return { key, type: 'added', value: data2[key] };
     }
-    if (!(key in data1)) {
-      return {
-        key,
-        type: 'added',
-        value: data2[key],
-      };
+
+    if (!Object.hasOwn(data2, key)) {
+      return { key, type: 'removed', value: data1[key] };
     }
-    if (data1[key] === data2[key]) {
-      return {
-        key,
-        type: 'unchanged',
-        value: data1[key],
-      };
+
+    const value1 = data1[key];
+    const value2 = data2[key];
+
+    if (typeof value1 === 'object' && value1 !== null
+     && typeof value2 === 'object' && value2 !== null) {
+      return { key, type: 'nested', children: buildDiff(value1, value2) };
     }
-    if (typeof data1[key] === 'object' && typeof data2[key] === 'object') {
-      return {
-        key,
-        type: 'nested',
-        children: buildDiff(data1[key], data2[key]),
-      };
+
+    if (value1 !== value2) {
+      return { key, type: 'updated', oldValue: value1, value: value2 };
     }
-    return {
-      key,
-      type: 'updated',
-      oldValue: data1[key],
-      value: data2[key],
-    };
+
+    return { key, type: 'unchanged', value: value1 };
   });
 };
 
 export default buildDiff;
+
+

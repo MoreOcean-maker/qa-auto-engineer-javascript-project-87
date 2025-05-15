@@ -1,4 +1,4 @@
-import parse from './parsers.js';
+import getParsedFile from './getParsedFile.js';
 import buildDiff from './buildDiff.js';
 
 // Временная реализация форматтеров прямо в файле
@@ -33,8 +33,8 @@ const formatters = {
 
     return iter(diff);
   },
+
   stylish: (diff) => {
-    // Базовая реализация stylish формата
     const iter = (nodes, depth = 1) => {
       const indent = ' '.repeat(4 * depth - 2);
       return nodes.map((node) => {
@@ -58,33 +58,29 @@ const formatters = {
 
     const stringify = (value, depth) => {
       if (typeof value === 'object' && value !== null) {
-        const indent = ' '.repeat(4 * depth);
+        const indent = ' '.repeat(4 * (depth + 1));
         const entries = Object.entries(value);
-        return `{\n${entries.map(([k, v]) => `${indent}  ${k}: ${stringify(v, depth + 1)}`).join('\n')}\n${indent}}`;
+        return `{\n${entries.map(([k, v]) => `${indent}${k}: ${stringify(v, depth + 1)}`).join('\n')}\n${' '.repeat(4 * depth)}}`;
       }
       return String(value);
     };
 
     return `{\n${iter(diff)}\n}`;
   },
-  // Временное решение для JSON формата
+
   json: (diff) => JSON.stringify(diff, null, 2),
 };
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
-  // Проверка существования форматера
   if (!formatters[formatName]) {
     throw new Error(`Unknown format: ${formatName}`);
   }
 
-  // Чтение и парсинг файлов
-  const data1 = parse(filepath1);
-  const data2 = parse(filepath2);
+  const data1 = getParsedFile(filepath1);
+  const data2 = getParsedFile(filepath2);
 
-  // Построение различий
   const diff = buildDiff(data1, data2);
 
-  // Применение выбранного форматера
   return formatters[formatName](diff);
 };
 

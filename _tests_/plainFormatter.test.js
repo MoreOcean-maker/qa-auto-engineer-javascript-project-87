@@ -1,4 +1,4 @@
-import plain from '../formatters/plain.js';
+import plain from '../src/formatters/plain.js';
 
 test('plain format test', () => {
   const diff = [

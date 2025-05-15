@@ -3,15 +3,14 @@
 exports[`genDiff json format 1`] = `
 "[
   {
+    "key": "follow",
+    "type": "removed",
+    "value": false
+  },
+  {
     "key": "host",
     "type": "unchanged",
     "value": "hexlet.io"
-  },
-  {
-    "key": "timeout",
-    "type": "updated",
-    "oldValue": 50,
-    "value": 20
   },
   {
     "key": "proxy",
@@ -19,9 +18,10 @@ exports[`genDiff json format 1`] = `
     "value": "123.234.53.22"
   },
   {
-    "key": "follow",
-    "type": "removed",
-    "value": false
+    "key": "timeout",
+    "type": "updated",
+    "oldValue": 50,
+    "value": 20
   },
   {
     "key": "verbose",
@@ -32,19 +32,19 @@ exports[`genDiff json format 1`] = `
 `;
 
 exports[`genDiff plain format 1`] = `
-"Property 'timeout' was updated. From 50 to 20
+"Property 'follow' was removed
 Property 'proxy' was removed
-Property 'follow' was removed
+Property 'timeout' was updated. From 50 to 20
 Property 'verbose' was added with value: true"
 `;
 
 exports[`genDiff stylish format (default) 1`] = `
 "{
+  - follow: false
     host: hexlet.io
+  - proxy: 123.234.53.22
   - timeout: 50
   + timeout: 20
-  - proxy: 123.234.53.22
-  - follow: false
   + verbose: true
 }"
 `;

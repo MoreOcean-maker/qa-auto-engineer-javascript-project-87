@@ -1,4 +1,4 @@
-import jsonFormatter from '../formatters/json.js';
+import jsonFormatter from '../src/formatters/json.js';
 
 describe('json formatter', () => {
   test('correctly formats diff to JSON', () => {
