@@ -1,4 +1,4 @@
-import plain from '../src/formatters/plain.js';
+import plain from '../src/formatters/plain.js'
 
 test('plain format test', () => {
   const diff = [
@@ -11,14 +11,14 @@ test('plain format test', () => {
       value: 20,
     },
     { type: 'added', key: 'verbose', value: true },
-  ];
+  ]
 
-  const result = plain(diff);
+  const result = plain(diff)
 
   expect(result).toEqual(
-    "Property 'follow' was removed\n"
-    + "Property 'proxy' was removed\n"
-    + "Property 'timeout' was updated. From 50 to 20\n"
-    + "Property 'verbose' was added with value: true",
-  );
-});
+    'Property \'follow\' was removed\n'
+    + 'Property \'proxy\' was removed\n'
+    + 'Property \'timeout\' was updated. From 50 to 20\n'
+    + 'Property \'verbose\' was added with value: true',
+  )
+})

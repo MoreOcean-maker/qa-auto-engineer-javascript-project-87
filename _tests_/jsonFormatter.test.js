@@ -1,4 +1,4 @@
-import jsonFormatter from '../src/formatters/json.js';
+import jsonFormatter from '../src/formatters/json.js'
 
 describe('json formatter', () => {
   test('correctly formats diff to JSON', () => {
@@ -14,10 +14,10 @@ describe('json formatter', () => {
         type: 'added',
         value: true,
       },
-    ];
+    ]
 
-    const result = jsonFormatter(diff);
-    expect(() => JSON.parse(result)).not.toThrow();
-    expect(result).toMatchSnapshot();
-  });
-});
+    const result = jsonFormatter(diff)
+    expect(() => JSON.parse(result)).not.toThrow()
+    expect(result).toMatchSnapshot()
+  })
+})
