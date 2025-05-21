@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1747826993109" clover="3.2.0">
+  <project timestamp="1747826993110" name="All files">
+    <metrics statements="64" coveredstatements="54" conditionals="43" coveredconditionals="27" methods="15" coveredmethods="14" elements="122" coveredelements="95" complexity="0" loc="64" ncloc="64" packages="1" files="4" classes="4"/>
+    <file name="buildDiff.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/buildDiff.js">
+      <metrics statements="14" coveredstatements="13" conditionals="12" coveredconditionals="8" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="3" type="stmt"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="5" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="13" count="12" type="cond" truecount="2" falsecount="0"/>
+      <line num="14" count="6" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+      <line num="22" count="6" type="stmt"/>
+      <line num="24" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="37" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="38" count="3" type="stmt"/>
+      <line num="46" count="3" type="stmt"/>
+    </file>
+    <file name="genDiff.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/genDiff.js">
+      <metrics statements="40" coveredstatements="33" conditionals="27" coveredconditionals="18" methods="11" coveredmethods="10"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="6" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="6" type="cond" truecount="2" falsecount="2"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="21" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="23" count="5" type="cond" truecount="1" falsecount="1"/>
+      <line num="25" count="5" type="cond" truecount="4" falsecount="2"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="46" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="49" count="5" type="cond" truecount="4" falsecount="2"/>
+      <line num="51" count="1" type="stmt"/>
+      <line num="53" count="2" type="stmt"/>
+      <line num="55" count="1" type="stmt"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="64" count="0" type="stmt"/>
+      <line num="69" count="1" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+      <line num="75" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="76" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="77" count="1" type="stmt"/>
+      <line num="80" count="3" type="stmt"/>
+      <line num="81" count="3" type="stmt"/>
+      <line num="83" count="3" type="stmt"/>
+      <line num="85" count="3" type="stmt"/>
+    </file>
+    <file name="getParsedFile.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/getParsedFile.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="6" type="stmt"/>
+      <line num="7" count="6" type="stmt"/>
+      <line num="8" count="6" type="stmt"/>
+      <line num="10" count="6" type="stmt"/>
+    </file>
+    <file name="parsers.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/parsers.js">
+      <metrics statements="5" coveredstatements="3" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="6" type="cond" truecount="1" falsecount="3"/>
+      <line num="6" count="6" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>

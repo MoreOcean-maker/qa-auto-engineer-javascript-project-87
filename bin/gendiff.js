@@ -12,14 +12,8 @@ program
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format', 'stylish')
   .action((filepath1, filepath2, options) => {
-    try {
-      const diff = genDiff(filepath1, filepath2, options.format)
-      console.log(diff)
-    }
-    catch (error) {
-      console.error(error.message)
-      process.exit(1)
-    }
+    const diff = genDiff(filepath1, filepath2, options.format)
+    console.log(diff)
   })
 
 program.parse(process.argv)

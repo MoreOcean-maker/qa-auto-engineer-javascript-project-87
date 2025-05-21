@@ -1,4 +1,4 @@
-const stringify = (value) => {
+const stringifyPlain = (value) => {
   if (value === null) return 'null'
   if (typeof value === 'object') return '[complex value]'
   return String(value)
@@ -11,11 +11,11 @@ const plain = (diff) => {
 
       switch (node.type) {
         case 'added':
-          return `Property '${currentPath}' was added with value: ${stringify(node.value)}`
+          return `Property '${currentPath}' was added with value: ${stringifyPlain(node.value)}`
         case 'removed':
           return `Property '${currentPath}' was removed`
         case 'updated':
-          return `Property '${currentPath}' was updated. From ${stringify(node.oldValue)} to ${stringify(node.value)}`
+          return `Property '${currentPath}' was updated. From ${stringifyPlain(node.oldValue)} to ${stringifyPlain(node.value)}`
         case 'nested':
           return iter(node.children, currentPath)
         case 'unchanged':
