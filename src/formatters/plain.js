@@ -1,32 +1,36 @@
-const stringifyPlain = (value) => {
-  if (value === null) return 'null'
-  if (typeof value === 'object') return '[complex value]'
-  return String(value)
-}
+const formatValue = (value) => {
+  if (value === null) return 'null';
+  if (typeof value === 'object' && !Array.isArray(value)) return '[complex value]';
+  return String(value);
+};
+
+const buildPropertyPath = (parentPath, key) => 
+  parentPath ? `${parentPath}.${key}` : key;
+
+const createDiffMessage = {
+  added: (path, value) => `Property '${path}' was added with value: ${formatValue(value)}`,
+  removed: (path) => `Property '${path}' was removed`,
+  updated: (path, oldValue, value) => 
+    `Property '${path}' was updated. From ${formatValue(oldValue)} to ${formatValue(value)}`,
+  nested: (children, path, iter) => iter(children, path),
+  unchanged: () => [],
+};
 
 const plain = (diff) => {
   const iter = (nodes, parentPath = '') => nodes
-    .flatMap(({ key, type, value, oldValue, children }) => {
-      const currentPath = parentPath ? `${parentPath}.${key}` : key
+    .flatMap((node) => {
+      const { key, type, value, oldValue, children } = node;
+      const currentPath = buildPropertyPath(parentPath, key);
 
-      switch (type) {
-        case 'added':
-          return `Property '${currentPath}' was added with value: ${stringifyPlain(value)}`
-        case 'removed':
-          return `Property '${currentPath}' was removed`
-        case 'updated':
-          return `Property '${currentPath}' was updated. From ${stringifyPlain(oldValue)} to ${stringifyPlain(value)}`
-        case 'nested':
-          return iter(children, currentPath)
-        case 'unchanged':
-          return []
-        default:
-          throw new Error(`Unknown node type: ${type}`)
+      if (!createDiffMessage[type]) {
+        throw new Error(`Unknown node type: ${type}`);
       }
+
+      return createDiffMessage[type](currentPath, value, oldValue, children, iter);
     })
-    .join('\n')
+    .join('\n');
 
-  return iter(diff)
-}
+  return iter(diff);
+};
 
-export default plain
+export default plain;

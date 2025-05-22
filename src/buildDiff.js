@@ -1,31 +1,50 @@
+const getSortedKeys = (obj1, obj2) => 
+  Array.from(new Set([...Object.keys(obj1), ...Object.keys(obj2)])).sort();
+
+const createNode = (key, type, value, oldValue, children) => ({
+  key,
+  type,
+  value,
+  oldValue,
+  children
+});
+
+const compareValues = (value1, value2) => {
+  const isObject = value => typeof value === 'object' && value !== null;
+  const areBothObjects = isObject(value1) && isObject(value2);
+  
+  return {
+    areBothObjects,
+    areEqual: value1 === value2
+  };
+};
+
 const buildDiff = (data1, data2) => {
-  const keys = Array.from(new Set([...Object.keys(data1), ...Object.keys(data2)])).sort()
+  const keys = getSortedKeys(data1, data2);
 
   return keys.map((key) => {
-    const value1 = data1[key]
-    const value2 = data2[key]
-    const base = { key, oldValue: undefined, children: undefined }
+    const value1 = data1[key];
+    const value2 = data2[key];
+    const { areBothObjects, areEqual } = compareValues(value1, value2);
 
-    if (!Object.prototype.hasOwnProperty.call(data1, key)) {
-      return { ...base, type: 'added', value: value2 }
+    if (!Object.hasOwn(data1, key)) {
+      return createNode(key, 'added', value2);
     }
 
-    if (!Object.prototype.hasOwnProperty.call(data2, key)) {
-      return { ...base, type: 'removed', value: value1 }
+    if (!Object.hasOwn(data2, key)) {
+      return createNode(key, 'removed', value1);
     }
 
-    const bothObjects = typeof value1 === 'object' && value1 !== null && typeof value2 === 'object' && value2 !== null
-
-    if (bothObjects) {
-      return { ...base, type: 'nested', children: buildDiff(value1, value2) }
+    if (areBothObjects) {
+      return createNode(key, 'nested', undefined, undefined, buildDiff(value1, value2));
     }
 
-    if (value1 !== value2) {
-      return { ...base, type: 'updated', value: value2, oldValue: value1 }
+    if (!areEqual) {
+      return createNode(key, 'updated', value2, value1);
     }
 
-    return { ...base, type: 'unchanged', value: value1 }
-  })
-}
+    return createNode(key, 'unchanged', value1);
+  });
+};
 
-export default buildDiff
+export default buildDiff;
