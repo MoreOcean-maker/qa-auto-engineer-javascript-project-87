@@ -20,8 +20,8 @@ exports[`genDiff json format 1`] = `
   {
     "key": "timeout",
     "type": "updated",
-    "oldValue": 50,
-    "value": 20
+    "value": 20,
+    "oldValue": 50
   },
   {
     "key": "verbose",
