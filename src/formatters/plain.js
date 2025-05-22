@@ -6,22 +6,22 @@ const stringifyPlain = (value) => {
 
 const plain = (diff) => {
   const iter = (nodes, parentPath = '') => nodes
-    .flatMap((node) => {
-      const currentPath = parentPath ? `${parentPath}.${node.key}` : node.key
+    .flatMap(({ key, type, value, oldValue, children }) => {
+      const currentPath = parentPath ? `${parentPath}.${key}` : key
 
-      switch (node.type) {
+      switch (type) {
         case 'added':
-          return `Property '${currentPath}' was added with value: ${stringifyPlain(node.value)}`
+          return `Property '${currentPath}' was added with value: ${stringifyPlain(value)}`
         case 'removed':
           return `Property '${currentPath}' was removed`
         case 'updated':
-          return `Property '${currentPath}' was updated. From ${stringifyPlain(node.oldValue)} to ${stringifyPlain(node.value)}`
+          return `Property '${currentPath}' was updated. From ${stringifyPlain(oldValue)} to ${stringifyPlain(value)}`
         case 'nested':
-          return iter(node.children, currentPath)
+          return iter(children, currentPath)
         case 'unchanged':
           return []
         default:
-          throw new Error(`Unknown node type: ${node.type}`)
+          throw new Error(`Unknown node type: ${type}`)
       }
     })
     .join('\n')
