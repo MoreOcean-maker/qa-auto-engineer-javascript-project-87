@@ -34,7 +34,7 @@ exports[`genDiff json format 1`] = `
 exports[`genDiff plain format 1`] = `
 "Property 'follow' was removed
 Property 'proxy' was removed
-Property 'timeout' was updated. From 20 to 50
+Property 'timeout' was updated. From 50 to 20
 Property 'verbose' was added with value: true"
 `;
 

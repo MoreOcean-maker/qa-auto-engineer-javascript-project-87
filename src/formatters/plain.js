@@ -22,11 +22,20 @@ const plain = (diff) => {
       const { key, type, value, oldValue, children } = node
       const currentPath = buildPropertyPath(parentPath, key)
 
-      if (!createDiffMessage[type]) {
-        throw new Error(`Unknown node type: ${type}`)
+      switch (type) {
+        case 'added':
+          return createDiffMessage.added(currentPath, value)
+        case 'removed':
+          return createDiffMessage.removed(currentPath)
+        case 'updated':
+          return createDiffMessage.updated(currentPath, oldValue, value)
+        case 'nested':
+          return createDiffMessage.nested(children, currentPath, iter)
+        case 'unchanged':
+          return createDiffMessage.unchanged()
+        default:
+          throw new Error(`Unknown node type: ${type}`)
       }
-
-      return createDiffMessage[type](currentPath, value, oldValue, children, iter)
     })
     .join('\n')
 

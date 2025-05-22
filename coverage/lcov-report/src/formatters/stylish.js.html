@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.41% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/29</span>
+                <span class='fraction'>20/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/14</span>
+                <span class='fraction'>7/12</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.42% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/28</span>
+                <span class='fraction'>18/24</span>
             </div>
         
             
@@ -118,17 +118,10 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -145,6 +138,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -161,96 +155,87 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const INDENT_SIZE = 4;
-const INDENT_SYMBOL = ' ';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const INDENT_SIZE = 4
+const INDENT_SYMBOL = ' '
 &nbsp;
-// Универсальная функция для генерации отступов
-const getIndent = (depth, offset = <span class="branch-0 cbranch-no" title="branch not covered" >0)</span> =&gt; INDENT_SYMBOL.repeat(depth * INDENT_SIZE - offset);
+const getIndent = (depth, offset = <span class="branch-0 cbranch-no" title="branch not covered" >0)</span> =&gt; INDENT_SYMBOL.repeat(depth * INDENT_SIZE - offset)
 &nbsp;
-// Форматирование значений (примитивных и объектов)
 const stringifyValue = (value, depth) =&gt; {
   <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof value !== 'object' || <span class="branch-1 cbranch-no" title="branch not covered" >value === null)</span> {
-    return String(value);
+    return String(value)
   }
 &nbsp;
   const lines = <span class="cstat-no" title="statement not covered" >Object.entries(value).map(<span class="fstat-no" title="function not covered" >([</span>key, val]) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >    `${getIndent(depth + 1)}${key}: ${stringifyValue(val, depth + 1)}`</span>
-  ));
+  ))
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return `{\n${lines.join('\n')}\n${getIndent(depth)}}`;</span>
-};
+<span class="cstat-no" title="statement not covered" >  return `{\n${lines.join('\n')}\n${getIndent(depth)}}`</span>
+}
 &nbsp;
-// Общий обработчик для узлов
-const formatNodeLine = (type, key, value, oldValue, depth) =&gt; {
-  const indent = getIndent(depth, 2);
+// Форматируем строку для узла, теперь принимаем children и iter как параметры для 'nested'
+const formatNodeLine = (type, key, value, oldValue, depth, children, iter) =&gt; {
+  const indent = getIndent(depth, 2)
+&nbsp;
   switch (type) {
     case 'added':
-      return `${indent}+ ${key}: ${stringifyValue(value, depth)}`;
+      return `${indent}+ ${key}: ${stringifyValue(value, depth)}`
     case 'removed':
-      return `${indent}- ${key}: ${stringifyValue(value, depth)}`;
+      return `${indent}- ${key}: ${stringifyValue(value, depth)}`
     case 'unchanged':
-      return `${indent}  ${key}: ${stringifyValue(value, depth)}`;
+      return `${indent}  ${key}: ${stringifyValue(value, depth)}`
     case 'updated':
       return [
         `${indent}- ${key}: ${stringifyValue(oldValue, depth)}`,
-        `${indent}+ ${key}: ${stringifyValue(value, depth)}`
-      ].join('\n');
-<span class="branch-4 cbranch-no" title="branch not covered" >    case 'nested':</span>
-      const childrenLines = <span class="cstat-no" title="statement not covered" >iter(node.children, depth + 1);</span>
-<span class="cstat-no" title="statement not covered" >      return `${getIndent(depth)}  ${key}: {\n${childrenLines}\n${getIndent(depth)}  }`;</span>
+        `${indent}+ ${key}: ${stringifyValue(value, depth)}`,
+      ].join('\n')
+<span class="branch-4 cbranch-no" title="branch not covered" >    case 'nested': {</span>
+      const childrenLines = <span class="cstat-no" title="statement not covered" >iter(children, depth + 1)</span>
+<span class="cstat-no" title="statement not covered" >      return `${getIndent(depth)}  ${key}: {\n${childrenLines}\n${getIndent(depth)}  }`</span>
+    }
 <span class="branch-5 cbranch-no" title="branch not covered" >    default:</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error(`Unknown node type: ${type}`);</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(`Unknown node type: ${type}`)</span>
   }
-};
+}
 &nbsp;
-// Основная функция
 const stylish = (diff) =&gt; {
-  const iter = (nodes, depth = 1) =&gt; {
-    return nodes.map(node =&gt; {
-      const { type, key, value, oldValue, children } = node;
+  const iter = (nodes, depth = 1) =&gt; nodes
+    .map((node) =&gt; {
+      const { type, key, value, oldValue, children } = node
 &nbsp;
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (type === 'nested') {
-        const nestedLines = <span class="cstat-no" title="statement not covered" >iter(children, depth + 1);</span>
-<span class="cstat-no" title="statement not covered" >        return `${getIndent(depth)}  ${key}: {\n${nestedLines}\n${getIndent(depth)}  }`;</span>
-      }
+      return formatNodeLine(type, key, value, oldValue, depth, children, iter)
+    })
+    .join('\n')
 &nbsp;
-      return formatNodeLine(type, key, value, oldValue, depth);
-    }).join('\n');
-  };
+  return `{\n${iter(diff)}\n}`
+}
 &nbsp;
-  return `{\n${iter(diff)}\n}`;
-};
-&nbsp;
-export default stylish;</pre></td></tr></table></pre>
+export default stylish
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-22T17:12:54.625Z
+                at 2025-05-22T17:19:14.512Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
