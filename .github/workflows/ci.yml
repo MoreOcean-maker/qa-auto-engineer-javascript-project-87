@@ -26,9 +26,10 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectKey: MoreOcean-maker_qa-auto-engineer-javascript-project-87
           organization: MoreOcean-maker
-          token: ${{ secrets.SONAR_TOKEN }}
 
 
