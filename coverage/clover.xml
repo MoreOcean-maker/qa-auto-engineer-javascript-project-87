@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1747932563907" clover="3.2.0">
-  <project timestamp="1747932563907" name="All files">
-    <metrics statements="89" coveredstatements="79" conditionals="41" coveredconditionals="26" methods="28" coveredmethods="26" elements="158" coveredelements="131" complexity="0" loc="89" ncloc="89" packages="2" files="8" classes="8"/>
+<coverage generated="1747932971391" clover="3.2.0">
+  <project timestamp="1747932971391" name="All files">
+    <metrics statements="87" coveredstatements="78" conditionals="41" coveredconditionals="27" methods="29" coveredmethods="27" elements="157" coveredelements="132" complexity="0" loc="87" ncloc="87" packages="2" files="8" classes="8"/>
     <package name="src">
       <metrics statements="37" coveredstatements="35" conditionals="15" coveredconditionals="11" methods="9" coveredmethods="9"/>
       <file name="buildDiff.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/buildDiff.js">
@@ -55,7 +55,7 @@
       </file>
     </package>
     <package name="src.formatters">
-      <metrics statements="52" coveredstatements="44" conditionals="26" coveredconditionals="15" methods="19" coveredmethods="17"/>
+      <metrics statements="50" coveredstatements="43" conditionals="26" coveredconditionals="16" methods="20" coveredmethods="18"/>
       <file name="index.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/formatters/index.js">
         <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
@@ -93,32 +93,30 @@
         <line num="33" count="1" type="stmt"/>
       </file>
       <file name="stylish.js" path="/home/vboxuser/qa-auto-engineer-javascript-project-87/src/formatters/stylish.js">
-        <metrics statements="25" coveredstatements="19" conditionals="12" coveredconditionals="7" methods="7" coveredmethods="6"/>
+        <metrics statements="23" coveredstatements="18" conditionals="12" coveredconditionals="8" methods="8" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="5" count="5" type="cond" truecount="0" falsecount="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="6" type="cond" truecount="2" falsecount="2"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="4" count="6" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="5" type="stmt"/>
-        <line num="23" count="5" type="cond" truecount="4" falsecount="2"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="24" count="5" type="cond" truecount="4" falsecount="2"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="5" type="stmt"/>
-        <line num="48" count="5" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
     </package>
   </project>
