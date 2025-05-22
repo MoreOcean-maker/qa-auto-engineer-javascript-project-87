@@ -37,4 +37,3 @@ const stylish = (diff) => {
 }
 
 export default stylish
-
