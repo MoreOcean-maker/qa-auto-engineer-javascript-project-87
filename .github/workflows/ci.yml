@@ -28,8 +28,11 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectKey: MoreOcean-maker_qa-auto-engineer-javascript-project-87
-          organization: MoreOcean-maker
+          args: >
+            -Dsonar.projectKey=MoreOcean-maker_qa-auto-engineer-javascript-project-87
+            -Dsonar.organization=moreocean-maker
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
 
