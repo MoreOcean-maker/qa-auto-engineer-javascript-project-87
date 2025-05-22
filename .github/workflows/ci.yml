@@ -25,9 +25,10 @@ jobs:
         run: npm test
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.11.0
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         with:
+          projectKey: MoreOcean-maker_qa-auto-engineer-javascript-project-87
+          organization: MoreOcean-maker
           token: ${{ secrets.SONAR_TOKEN }}
-          organization: your-org-key
-          projectKey: your-project-key
+
 
